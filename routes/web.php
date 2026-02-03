@@ -7,4 +7,3 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/job',[JobController::class,'index']);
-Route::get('',[JobController::class,'']);
