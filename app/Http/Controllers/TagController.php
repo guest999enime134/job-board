@@ -14,10 +14,9 @@ class TagController extends Controller
         //pass data to view
         return view('tag.index',['tags'=>$data,"PageTitle"=>"Tags"]);
     }
-    function create(){
-        Tag::create([
-            'title'=>'Network engineer'
-        ]);
+    function create(Request $request){
+        $data = $request->all();
+        Tag::create($data);
         return redirect('/tags');
     }
     function test(){

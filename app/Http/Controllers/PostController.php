@@ -13,8 +13,10 @@ class PostController extends Controller
         //pass data to view
         return view('post.index',['posts'=>$data,"PageTitle"=>"blog"]);
     }
-    function create(){
-        Post::factory(100)->create();
+    function create(Request $request){
+        $data = $request->all();
+        $data['published'] = false;
+        Post::create($data);
         return redirect('/blog');
     }
     function show($id){
